@@ -8,6 +8,11 @@ import java.util.ArrayList;
 
 public class Splitter {
     private String text;
+
+    public  Splitter(){
+        text="";
+    }
+
     public Splitter(String text){
         this.text = text;
     }
@@ -57,7 +62,7 @@ public class Splitter {
         return words;
     }
 
-    private boolean isLetter(char c){
+    public boolean isLetter(char c){
         return Character.isLetter(c);
     }
 

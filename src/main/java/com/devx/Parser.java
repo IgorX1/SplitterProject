@@ -17,7 +17,6 @@ public class Parser {
     public Parser(String path){
         filePath = path;
         try{
-            //TODO: fix encoding problems
             text = readFile(path, Charset.defaultCharset());
         }
         catch (IOException e){
