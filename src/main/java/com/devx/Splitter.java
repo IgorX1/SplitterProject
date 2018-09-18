@@ -69,4 +69,8 @@ public class Splitter {
     private boolean isSuspicious(char c){
         return (c=='-'||c=='\'');
     }
+
+    public void setText(String text){
+        this.text = text;
+    }
 }
