@@ -95,7 +95,7 @@ public class FileReaderMockTest {
         //freader.getText(path);
         doThrow(new IOException()).when(freader).readFile();
         when(freader.getText(path)).thenCallRealMethod();
-    }
+    }//
 
     //Using partial mocks
     @Test
