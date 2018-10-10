@@ -1,5 +1,16 @@
-<suite name="Default Suite">
+<suite name="SplitterProject Default Suite">
 	<test name="SplitterProject">
+		<groups parallel="tests"  thread-count="5">
+			<run>
+				<include name="unitLetterOperations"/>
+			</run>
+		</groups>
+		<groups>
+			<run>
+				<include name="testSplitMethod"/>
+				<exclude name="unitLetterOperations"/>
+			</run>
+		</groups>
 		<classes>
 			<class name="com.devx.SplitterNG"/>
 		</classes>
