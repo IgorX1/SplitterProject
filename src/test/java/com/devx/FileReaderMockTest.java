@@ -15,6 +15,7 @@ import static org.junit.Assert.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class FileReaderMockTest {
+    private static final String DEFAULT_PATH = "mypath";
 
     //Used mostly as a test stub
     @Mock
@@ -24,7 +25,7 @@ public class FileReaderMockTest {
     private Path path = mock(Path.class);
 
     @Spy
-    FileReaderClass fc2 = mock(FileReaderClass.class);
+    FileReaderClass fc2 = new FileReaderClass();
 
     @Before
     public void setUp(){
@@ -90,7 +91,17 @@ public class FileReaderMockTest {
 
     @Test(expected = Exception.class)
     public void testExceptions(){
-        doThrow(new IOException()).when(freader).getText(path);
-        freader.getText(path);
+        //doThrow(new IOException()).when(freader).getText(path);
+        //freader.getText(path);
+        doThrow(new IOException()).when(freader).readFile();
+        when(freader.getText(path)).thenCallRealMethod();
+    }
+
+    //Using partial mocks
+    @Test
+    public void testMethodInvocationFromAnotherMethod(){
+        when(fc2.getText(path)).thenCallRealMethod();
+        fc2.getText(path);
+        verify(fc2).readFile();
     }
 }

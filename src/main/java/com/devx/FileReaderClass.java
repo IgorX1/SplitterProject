@@ -9,9 +9,7 @@ public class FileReaderClass {
     private String text;
     private String path;
 
-    public FileReaderClass(String path) {
 
-    }
 
     public String getText(Path path){
         this.path  = path.getPath();
