@@ -12,8 +12,49 @@ public class SplitterNG {
         splitter = new Splitter();
     }
 
-    @Test
-    public void test1(){
-        assertEquals(1,1);
+    @DataProvider
+    public Object[][] getWrongLetter(){
+        return new Object[][] {
+                {'1'},
+                {Character.MIN_VALUE},
+                {'-'},
+                {'{'},
+                {'+'},
+                {'?'}
+        };
     }
+
+    @Test(dataProvider = "getWrongLetter")
+    public void isLetter_notLetter_false(char c){
+        assertFalse(splitter.isLetter(c));
+    }
+
+    @DataProvider
+    public Object[][] getCorrectLetter() {
+        return new Object[][]{
+                {'a'},
+                {'b'},
+                {'c'},
+                {'d'},
+                {'e'},
+                {'f'},
+                {'z'},
+                {'A'},
+                {'B'},
+                {'C'},
+                {'U'}
+        };
+    }
+
+    @Test(dataProvider = "getCorrectLetter")
+    public void isLetter_realLetter_true(char c){
+        assertTrue(splitter.isLetter(c));
+    }
+
+    @Test(expectedExceptions = Exception.class)
+    public void split_wrongInput_exception(){
+        Splitter splitter1 = new Splitter(null);
+        splitter1.split();
+    }
+
 }

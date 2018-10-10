@@ -1,0 +1,9 @@
+<suite name="Default Suite">
+	<test name="SplitterProject">
+		<classes>
+			<class name="com.devx.SplitterNG"/>
+		</classes>
+	</test>
+	<!--  SplitterProject  -->
+</suite>
+<!--  Default Suite  -->
