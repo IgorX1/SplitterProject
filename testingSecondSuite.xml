@@ -1,0 +1,18 @@
+<suite name="Second Suite Without Exceptions">
+	<test name="SplitterProject1 no exceptions">
+		<groups>
+			<run>
+				<include name="testSplitMethod"/>
+			</run>
+		</groups>
+		<classes>
+			<class name="com.devx.SplitterNG">
+				<methods>
+					<exclude name = "split_wrongInput_exception"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<!--  SplitterProject  -->
+</suite>
+<!--  Default Suite  -->
